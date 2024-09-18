@@ -1,0 +1,47 @@
+From 97db2249db6f043ff947c86c908d7ef9fc3cd23d Mon Sep 17 00:00:00 2001
+From: wjyrich <1071633242@qq.com>
+Date: Sat, 14 Sep 2024 14:28:03 +0800
+Subject: [PATCH] install
+
+---
+ Adeptus.pro     |  8 ++++++++
+ adeptus.desktop | 11 +++++++++++
+ 2 files changed, 19 insertions(+)
+ create mode 100644 adeptus.desktop
+
+diff --git a/Adeptus.pro b/Adeptus.pro
+index 7232132..0a5e01d 100644
+--- a/Adeptus.pro
++++ b/Adeptus.pro
+@@ -92,3 +92,11 @@ HEADERS  += mainwindow.h \
+     operations.h
+ 
+ RESOURCES = images.qrc
++
++target.path = $$PREFIX/bin
++desktop.files = adeptus.desktop
++desktop.path = $$PREFIX/share/applications/
++icons.path = $$PREFIX/share/icons/hicolor/apps/
++icons.files = icon/adeptus.png
++
++INSTALLS += target desktop icons
+diff --git a/adeptus.desktop b/adeptus.desktop
+new file mode 100644
+index 0000000..23dec70
+--- /dev/null
++++ b/adeptus.desktop
+@@ -0,0 +1,11 @@
++[Desktop Entry]
++Categories=Accessibility;Qt;Utility;
++Exec=adeptus
++Name=adeptus
++Name[zh_CN]=adeptus
++Icon=adeptus
++StartupNotify=false
++Terminal=false
++Type=Application
++GenericName=adeptus
++Version=1.1.0
+-- 
+2.43.4
+
