@@ -1,0 +1,29 @@
+version: "1"
+
+package:
+  id: io.github.adeptus
+  name: adeptus
+  version: 1.1.1.1
+  kind: app
+  description: |
+    Lonely developer bug-tracker
+
+command:
+  - /opt/apps/io.github.adeptus/files/bin/adeptus
+
+base: org.deepin.foundation/23.0.0
+runtime: org.deepin.Runtime/23.0.1
+
+sources:
+  - kind: git
+    url: https://github.com/orion-project/adeptus.git
+    version: master
+    commit: 0fdc54962552b3e9183e12ee31137368fd5c9276
+
+build: |
+  cd /project/linglong/sources/adeptus.git
+  git apply ../../../0001-install.patch
+  cp icon/icon_contour.png icon/adeptus.png
+  qmake -makefile PREFIX=${PREFIX} LIB_INSTALL_DIR=${PREFIX}/lib/${TRIPLET}
+  make -j$(nproc)
+  make install
